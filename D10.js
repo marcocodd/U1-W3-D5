@@ -95,12 +95,23 @@ function deleteOne(string, boolean) {
     return string.slice(0, string.length - 1);
   }
 }
-console.log(deleteOne("Aiuto", false));
+
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
+
+function onlyLetters(string) {
+  let newString = "";
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] <= "9" && string[i] >= "0") {
+    } else {
+      newString = newString + string[i];
+    }
+  }
+  return newString;
+}
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
