@@ -188,9 +188,28 @@ const isTodayMyBirthday = function () {
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+const deleteProp = function (object, property) {
+  //delete object.property , lo avevo fatto così, ma property non veniva evidenziato come se non fosse utilizzato, su google ho trovato e capito la soluzione :D
+  delete object[property];
+  return object;
+};
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
+*/
+// Ho commentato il codice, poichè l'array di oggetti è dopo l'esercizio e giustamente mi da errore di inizializzazioni vari
+//spostandolo dopo funziona, anche senza utilizzare ParseInt per l'anno, ma so che converrebbe
+
+/*const newestMovie = function () {
+  let youngerMovie = movies[0];
+  for (i = 0; i < movies.length; i++) {
+    if (movies[i].Year > youngerMovie.Year) {
+      youngerMovie = movies[i];
+    }
+  }
+  return youngerMovie;
+};
+console.log(newestMovie());
 */
 
 /* ESERCIZIO 13
