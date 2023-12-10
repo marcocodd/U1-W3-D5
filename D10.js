@@ -381,7 +381,18 @@ const addClass = function () {
   ***
 
 */
-
+// ?????? non ho capito :D
+const halfTree = function (asteriskNum) {
+  let asterisk = "";
+  for (let i = 0; i < asteriskNum; i++) {
+    asterisk = asterisk + "*";
+    console.log(asterisk);
+    for (let k = 0; k < i; k++) {
+      asterisk = "";
+    }
+  }
+};
+console.log(halfTree(5));
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
@@ -397,6 +408,15 @@ const addClass = function () {
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+
+const isPrime = function (num) {
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
