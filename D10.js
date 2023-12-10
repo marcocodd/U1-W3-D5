@@ -120,6 +120,20 @@ function onlyLetters(string) {
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+const daysOfweek = [
+  "domenica",
+  "lunedì",
+  "martedì",
+  "mercoledì",
+  "giovedì",
+  "venerdì",
+  "sabato",
+];
+
+const whatDayIsIt = function () {
+  return daysOfweek[new Date().getDay()];
+};
+console.log(whatDayIsIt());
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -134,6 +148,19 @@ function onlyLetters(string) {
   }
 */
 
+const rolltheDices = function (lanci) {
+  let oggetto = {};
+  let sum = 0;
+  let values = [];
+  for (let i = 0; i < lanci; i++) {
+    let dado = dice();
+    sum = sum + dado;
+    values.push(dado);
+  }
+  oggetto = { sum, values };
+  console.log(oggetto);
+};
+
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
@@ -141,6 +168,17 @@ function onlyLetters(string) {
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+const isTodayMyBirthday = function () {
+  const myBirthdate = new Date("1991-10-11");
+  if (
+    myBirthdate.getDate === new Date().getDate() &&
+    myBirthdate.getMonth === new Date().getMonth()
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 // Arrays & Oggetti
 
