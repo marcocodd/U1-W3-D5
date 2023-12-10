@@ -197,40 +197,77 @@ const deleteProp = function (object, property) {
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
-// Ho commentato il codice, poichè l'array di oggetti è dopo l'esercizio e giustamente mi da errore di inizializzazioni vari
-//spostandolo dopo funziona, anche senza utilizzare ParseInt per l'anno, ma so che converrebbe
 
-/*const newestMovie = function () {
+const newestMovie = function () {
   let youngerMovie = movies[0];
   for (i = 0; i < movies.length; i++) {
-    if (movies[i].Year > youngerMovie.Year) {
+    if (parseInt(movies[i].Year) > parseInt(youngerMovie.Year)) {
       youngerMovie = movies[i];
     }
   }
   return youngerMovie;
 };
-console.log(newestMovie());
-*/
 
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
 
+const countMovies = function () {
+  return movies.length;
+};
+
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
 
+const onlyTheYears = function () {
+  const movieYears = [];
+  for (i = 0; i < movies.length; i++) {
+    movieYears.push(movies[i].Year);
+  }
+  return movieYears;
+};
+
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
+const onlyInLastMillennium = function () {
+  return movies.filter((movie) => {
+    return parseInt(movie.Year) > 1900 && parseInt(movie.Year) < 2000;
+  });
+};
 
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
+const sumAllTheYears = function () {
+  let sumOfYears = 0;
+  for (let i = 0; i < movies.length; i++) {
+    sumOfYears = sumOfYears + parseInt(movies[i].Year);
+  }
+  return sumOfYears;
+};
 
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+
+const searchByTitle = function (title) {
+  const searchedTitle = [];
+  for (let i = 0; i < movies.length; i++) {
+    const titleWords = movies[i].Title.split(" ");
+    if (movies[i].Title.toLocaleLowerCase() === title.toLocaleLowerCase()) {
+      searchedTitle.push(movies[i]);
+    } else {
+      for (let k = 0; k < titleWords.length; k++) {
+        if (titleWords[k].toLowerCase().includes(title.toLowerCase())) {
+          searchedTitle.push(movies[i]);
+        }
+      }
+    }
+  }
+  return searchedTitle;
+};
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
